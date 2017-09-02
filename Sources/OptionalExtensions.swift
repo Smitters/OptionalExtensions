@@ -8,6 +8,8 @@
 
 import Foundation
 
+// MARK: - Methods
+
 public extension Optional {
     
     /**
@@ -59,6 +61,11 @@ public extension Optional {
             return defaultExpression()
         }
     }
+}
+
+// MARK: - Properties
+
+public extension Optional {
     
     /**
      *
@@ -94,5 +101,69 @@ public extension Optional {
         } else {
             return String()
         }
+    }
+}
+
+// MARK: - Custom operators
+
+infix operator *>
+infix operator *>=
+
+infix operator *<
+infix operator *<=
+
+/**
+ * Returns a Boolean value that indicates whether the first argument is greater than the second argument.
+ */
+
+public func *> <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+    switch (lhs, rhs) {
+    case let (l?, r?):
+        return l > r
+    default:
+        return rhs *< lhs
+    }
+}
+
+/**
+ * Returns a Boolean value that indicates whether the first argument is greater than or equal to the second argument.
+ */
+
+public func *>= <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+    switch (lhs, rhs) {
+    case let (l?, r?):
+        return l >= r
+    default:
+        return rhs *<= lhs
+    }
+}
+
+/**
+ * Returns a Boolean value that indicates whether the first argument is less than the second argument.
+ */
+
+public func *< <T : Comparable>(lhs:T?, rhs: T?) -> Bool {
+    switch (lhs, rhs) {
+    case let (l?, r?):
+        return l < r
+    case (nil, _?):
+        return true
+    default:
+        return false
+    }
+}
+
+/**
+ * Returns a Boolean value that indicates whether the first argument is less than or equal to the second argument.
+ */
+
+public func *<= <T : Comparable>(lhs:T?, rhs: T?) -> Bool {
+    switch (lhs, rhs) {
+    case let (l?, r?):
+        return l <= r
+    case (nil, _?):
+        return true
+    default:
+        return false
     }
 }

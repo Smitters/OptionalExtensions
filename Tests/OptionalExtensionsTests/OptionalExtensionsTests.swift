@@ -12,7 +12,7 @@ import OptionalExtensions
 
 class OptionalExtensionsTests: XCTestCase {
     
-    func teste_requireInvoledOnNonNilValue_thenReturnsUnwrapedValue() {
+    func teste_requireWhenInvokedOnNonNilValue_thenReturnsUnwrapedValue() {
         let notNilValue: Int? = 42
         XCTAssertEqual(notNilValue.require(), 42)
     }
@@ -55,5 +55,39 @@ class OptionalExtensionsTests: XCTestCase {
     func test_stringRepresentation_whenInvokedOnNilValue_thenReturnsEmptyString() {
         let currentYear: Int? = nil
         XCTAssertEqual(currentYear.stringRepresentation, "")
+    }
+    
+    func test_OptionalMoreOpearators() {
+        let x: Int? = 43
+        let y: Int? = 5
+        let z: Int? = nil
+        
+        XCTAssertTrue(x *> y)
+        XCTAssertTrue(x *> z)
+        XCTAssertTrue(x *>= 43)
+        XCTAssertTrue(x *>= y)
+        XCTAssertTrue(x *>= z)
+        
+        XCTAssertFalse(y *> x)
+        XCTAssertFalse(z *> x)
+        XCTAssertFalse(y *>= x)
+        XCTAssertFalse(z *>= x)
+    }
+    
+    func test_OptionalLessOpearators() {
+        let x: Int? = 43
+        let y: Int? = 5
+        let z: Int? = nil
+        
+        XCTAssertTrue(y *< x)
+        XCTAssertTrue(z *< x)
+        XCTAssertTrue(x *<= 43)
+        XCTAssertTrue(y *<= x)
+        XCTAssertTrue(z *<= x)
+        
+        XCTAssertFalse(x *< y)
+        XCTAssertFalse(x *< z)
+        XCTAssertFalse(x *<= y)
+        XCTAssertFalse(x *<= z)
     }
 }
