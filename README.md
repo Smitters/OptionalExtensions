@@ -20,7 +20,7 @@ let daysCount = daysInMonth.unwrap(default: 31) // returns 31
 
 **Property** `isNone` returns true if the `Optional` is nil:
 
-````swift
+```swift
 let x: String? = nil
 let r = x.isNone // r == true
 ```
