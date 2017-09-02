@@ -1,5 +1,11 @@
 # ExtOptional
 
+![ios](https://cocoapod-badges.herokuapp.com/v/ExtOptional/badge.png)
+![Swift 3.0.x](https://img.shields.io/badge/Swift-3.0.x-orange.svg)
+![ios](https://cocoapod-badges.herokuapp.com/p/ExtOptional/badge.png)
+![GitHub license](https://cocoapod-badges.herokuapp.com/l/ExtOptional/badge.(png|svg)
+[![Twitter](https://img.shields.io/badge/contact-@smetankin93-blue.svg?style=flat)](https://twitter.com/smetankin93)
+
 Handful of functions, operators and properties that will help you work with `Optional` types.
 
 ## Usage
