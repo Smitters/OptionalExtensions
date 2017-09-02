@@ -22,21 +22,24 @@ public extension Optional {
      *  - return: The value this optional contains.
      */
     
-    public func require(hint hintString: String? = nil,
-                        file: StaticString = #file,
-                        line: UInt = #line) -> Wrapped {
+    public func require(hint hintExpression: @autoclosure () -> String? = nil,
+                 file: StaticString = #file,
+                 line: UInt = #line) -> Wrapped {
         guard let unwrapped = self else {
             var message = "Required value was nil in \(file), at line \(line)"
             
-            if let hint = hintString {
+            if let hint = hintExpression() {
                 message.append(". Debugging hint: \(hint)")
             }
-            fatalError(message)
+            
+            let exception = NSException(name: .invalidArgumentException, reason: message, userInfo: nil)
+            exception.raise()
+            
+            fatalError(message, file: file, line: line)
         }
         
         return unwrapped
     }
-    
     
     /**
      * Unwraps this optional or return default value
@@ -44,16 +47,16 @@ public extension Optional {
      * This method will either return the value that this Optional contains, or return
      * a default value in case the Optional instance is nil.
      *
-     * - parameter defaultVaue: Value that will be returned in case the Optional instance is nil.
+     * - parameter defaultExpression: Value that will be returned in case the Optional instance is nil.
      *
      * - returns: Contained value or a default.
      */
     
-    public func unwrap(default defaultVaue: Wrapped) -> Wrapped {
+    public func unwrap(default defaultExpression: @autoclosure () -> Wrapped) -> Wrapped {
         if let unwrapped = self {
             return unwrapped
         } else {
-            return defaultVaue
+            return defaultExpression()
         }
     }
     

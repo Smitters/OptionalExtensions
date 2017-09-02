@@ -12,6 +12,11 @@ import OptionalExtensions
 
 class OptionalExtensionsTests: XCTestCase {
     
+    func teste_requireInvoledOnNonNilValue_thenReturnsUnwrapedValue() {
+        let notNilValue: Int? = 42
+        XCTAssertEqual(notNilValue.require(), 42)
+    }
+    
     func test_unwrap_whenInvokedOnNonNilValue_thenRetursOriginalValue() {
         let notNilValue: Int? = 42
         XCTAssertEqual(notNilValue.unwrap(default: 0), 42)
