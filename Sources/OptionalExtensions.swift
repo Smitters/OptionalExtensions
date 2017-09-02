@@ -25,8 +25,8 @@ public extension Optional {
      */
     
     public func require(hint hintExpression: @autoclosure () -> String? = nil,
-                 file: StaticString = #file,
-                 line: UInt = #line) -> Wrapped {
+                        file: StaticString = #file,
+                        line: UInt = #line) -> Wrapped {
         guard let unwrapped = self else {
             var message = "Required value was nil in \(file), at line \(line)"
             
@@ -37,7 +37,7 @@ public extension Optional {
             let exception = NSException(name: .invalidArgumentException, reason: message, userInfo: nil)
             exception.raise()
             
-            fatalError(message, file: file, line: line)
+            fatalError(message)
         }
         
         return unwrapped
