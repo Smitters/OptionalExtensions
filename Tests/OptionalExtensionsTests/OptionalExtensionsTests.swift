@@ -62,16 +62,16 @@ class OptionalExtensionsTests: XCTestCase {
         let y: Int? = 5
         let z: Int? = nil
         
-        XCTAssertTrue(x *> y)
-        XCTAssertTrue(x *> z)
-        XCTAssertTrue(x *>= 43)
-        XCTAssertTrue(x *>= y)
-        XCTAssertTrue(x *>= z)
+        XCTAssertTrue(x >? y)
+        XCTAssertTrue(x >? z)
+        XCTAssertTrue(x >=? 43)
+        XCTAssertTrue(x >=? y)
+        XCTAssertTrue(x >=? z)
         
-        XCTAssertFalse(y *> x)
-        XCTAssertFalse(z *> x)
-        XCTAssertFalse(y *>= x)
-        XCTAssertFalse(z *>= x)
+        XCTAssertFalse(y >? x)
+        XCTAssertFalse(z >? x)
+        XCTAssertFalse(y >=? x)
+        XCTAssertFalse(z >=? x)
     }
     
     func test_OptionalLessOpearators() {
@@ -79,15 +79,15 @@ class OptionalExtensionsTests: XCTestCase {
         let y: Int? = 5
         let z: Int? = nil
         
-        XCTAssertTrue(y *< x)
-        XCTAssertTrue(z *< x)
-        XCTAssertTrue(x *<= 43)
-        XCTAssertTrue(y *<= x)
-        XCTAssertTrue(z *<= x)
+        XCTAssertTrue(y <? x)
+        XCTAssertTrue(z <? x)
+        XCTAssertTrue(x <=? 43)
+        XCTAssertTrue(y <=? x)
+        XCTAssertTrue(z <=? x)
         
-        XCTAssertFalse(x *< y)
-        XCTAssertFalse(x *< z)
-        XCTAssertFalse(x *<= y)
-        XCTAssertFalse(x *<= z)
+        XCTAssertFalse(x <? y)
+        XCTAssertFalse(x <? z)
+        XCTAssertFalse(x <=? y)
+        XCTAssertFalse(x <=? z)
     }
 }
