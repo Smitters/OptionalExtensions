@@ -106,22 +106,22 @@ public extension Optional {
 
 // MARK: - Custom operators
 
-infix operator *>
-infix operator *>=
+infix operator >?
+infix operator >=?
 
-infix operator *<
-infix operator *<=
+infix operator <?
+infix operator <=?
 
 /**
  * Returns a Boolean value that indicates whether the first argument is greater than the second argument.
  */
 
-public func *> <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+public func >? <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
     switch (lhs, rhs) {
     case let (l?, r?):
         return l > r
     default:
-        return rhs *< lhs
+        return rhs <? lhs
     }
 }
 
@@ -129,12 +129,12 @@ public func *> <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
  * Returns a Boolean value that indicates whether the first argument is greater than or equal to the second argument.
  */
 
-public func *>= <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+public func >=? <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
     switch (lhs, rhs) {
     case let (l?, r?):
         return l >= r
     default:
-        return rhs *<= lhs
+        return rhs <=? lhs
     }
 }
 
@@ -142,7 +142,7 @@ public func *>= <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
  * Returns a Boolean value that indicates whether the first argument is less than the second argument.
  */
 
-public func *< <T : Comparable>(lhs:T?, rhs: T?) -> Bool {
+public func <? <T : Comparable>(lhs:T?, rhs: T?) -> Bool {
     switch (lhs, rhs) {
     case let (l?, r?):
         return l < r
@@ -157,7 +157,7 @@ public func *< <T : Comparable>(lhs:T?, rhs: T?) -> Bool {
  * Returns a Boolean value that indicates whether the first argument is less than or equal to the second argument.
  */
 
-public func *<= <T : Comparable>(lhs:T?, rhs: T?) -> Bool {
+public func <=? <T : Comparable>(lhs:T?, rhs: T?) -> Bool {
     switch (lhs, rhs) {
     case let (l?, r?):
         return l <= r

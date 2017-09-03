@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "ExtOptional"
-  s.version      = "1.1"
+  s.version      = "1.2"
   s.summary      = "Some extensions for Optional type"
   s.description  = "Handful of functions, operators and properties that will help you work with Optional types."
   s.homepage     = "https://github.com/Smitters/OptionalExtensions.git"

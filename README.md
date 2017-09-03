@@ -18,7 +18,7 @@ Handful of functions, operators and properties that will help you work with `Opt
 Call `require()` to require `Optional` values to be non-`nil`, or throws fatalError with optionally given `hint` for debugging purposes:
 
 ```swift
-let gitURL = URL(string: "https://github.com/Smitters/OptionalExtensions")
+let gitURL: URL? = URL(string: "https://github.com/Smitters/OptionalExtensions")
 let request = URLRequest(url: gitURL.require(hint: "Invalid URL"))
 ```
 
@@ -40,7 +40,7 @@ let r = x.isNone // r == true
 
 ```swift
 let x: String? = "foo"
-let r = x.isSome() // r == true
+let r = x.isSome // r == true
 ```
 
 **Property** `stringRepresentation` ensures that the text you set never ever includes that annoying additional `“Optional(…)”`:
@@ -54,22 +54,22 @@ print("\(x) \(y) \(z)") // Optional("String") Optional(31) nil
 print("\(x.stringRepresentation) \(y.stringRepresentation) \(z.stringRepresentation)") // String 31
 ```
 
-**Swift 3** Removes Optional Comparison Operators, but you can achieve same behaviour adding `*` symbol to Swift's standart comparison operator:
+**Swift 3** Removes Optional Comparison Operators, but you can achieve same behaviour adding `?` symbol to Swift's standart comparison operator:
 
 ```swift
 let x: Int? = 43
 let y: Int? = 5
 let z: Int? = nil
 
-x *>= y // true
-x *> z // true
-z *> x // false
-y *< x // true
-x *<= 43 // true
-x *<= y //false
+x >=? y // true
+x >? z // true
+z >? x // false
+y <? x // true
+x <=? 43 // true
+x <=? y //false
 
 let array: [Int?] = [2, 4, nil, 1, 5, nil, 3]
-let sortedArray = array.sorted(by: *>) // [5, 4, 3, 2, 1, nil, nil]
+let sortedArray = array.sorted(by: >?) // [5, 4, 3, 2, 1, nil, nil]
 
 ```
 
