@@ -1,5 +1,10 @@
 # ExtOptional
 
+[![Build Status](https://travis-ci.org/Smitters/OptionalExtensions.svg?branch=master)](https://travis-ci.org/Smitters/OptionalExtensions)
+[![codecov](https://codecov.io/gh/Smitters/OptionalExtensions/branch/master/graph/badge.svg)](https://codecov.io/gh/Smitters/OptionalExtensions)
+[![GitHub issues](https://img.shields.io/github/issues/Smitters/OptionalExtensions.svg?style=flat-square)](https://github.com/Smitters/OptionalExtensions/issues)
+
+
 ![ios](https://cocoapod-badges.herokuapp.com/v/ExtOptional/badge.png)
 ![GitHub license](https://cocoapod-badges.herokuapp.com/l/ExtOptional/badge.png)
 ![Swift 3.0.x](https://img.shields.io/badge/Swift-3.0.x-orange.svg)
