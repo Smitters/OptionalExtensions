@@ -1,0 +1,6 @@
+osx_image: xcode8.2
+language: objective-c
+
+script:
+- xcodebuild clean build -project OptionalExtensions.xcodeproj -scheme "OptionalExtensions-iOS" -sdk iphonesimulator
+- xcodebuild clean test -project OptionalExtensions.xcodeproj -scheme "OptionalExtensions-iOS" -sdk iphonesimulator
